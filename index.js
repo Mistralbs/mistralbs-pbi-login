@@ -6,9 +6,10 @@ const session = require('express-session')
 const UsersMock = require('./mock/users-mock');
 const PowerBIClient = require('./power-bi/client');
 const config = require('./power-bi/config.json');
+
 app.set('view engine', 'ejs');
 
-app.use(session({ secret: 'keyboard cat', saveUninitialized: true, resave: true, cookie: { maxAge: 600000 }}))
+app.use(session({ secret: 'keyboard cat', saveUninitialized: true, resave: true, cookie: { maxAge: 600000 } }))
 app.use(express.static('public'));
 
 router.get('/', function (req, res, next) {
@@ -63,7 +64,7 @@ router.post('/login', bodyParser.urlencoded({ extended: false }), function (req,
     } else {
       throw new Error('Server Error');
     }
-     
+
   } catch (err) {
     res.statusCode = 401;
     return res.render('index.ejs', {
