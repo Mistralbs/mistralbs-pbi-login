@@ -36,7 +36,7 @@ report.off("loaded");
  
 // Report.on will add an event handler which prints to Log window.
 report.on("loaded", function () {
-    Log.logText("Loaded");
+    Log.log("Loaded");
 });
  
 // Report.off removes a given event handler if it exists.
@@ -44,7 +44,7 @@ report.off("rendered");
  
 // Report.on will add an event handler which prints to Log window.
 report.on("rendered", function () {
-    Log.logText("Rendered");
+    Log.log("Rendered");
 });
  
 report.on("error", function (event) {
@@ -57,7 +57,7 @@ report.off("saved");
 report.on("saved", function (event) {
     Log.log(event.detail);
     if (event.detail.saveAs) {
-        Log.logText('In order to interact with the new report, create a new token and load the new report');
+        Log.log('In order to interact with the new report, create a new token and load the new report');
     }
 });
 }
