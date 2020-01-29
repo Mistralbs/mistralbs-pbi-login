@@ -138,3 +138,16 @@
     justify-content: center;
     margin-bottom: 30px;
 }
+.users-info {
+  font-size: 12px;
+  padding: 5px;
+  background: #eee;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+
+
+}
+
+.users-info p {
+  margin: 0px;
+}
