@@ -6,7 +6,7 @@ const session = require('express-session')
 
 const UsersMock = require('./mock/users-mock');
 
-app.use(session({ secret: 'keyboard cat', saveUninitialized: true, resave: true, cookie: { maxAge: 60000 }}))
+app.use(session({ secret: 'keyboard cat', saveUninitialized: true, resave: true, cookie: { maxAge: 600000 }}))
 
 app.set('view engine', 'ejs');
 
