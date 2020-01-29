@@ -3,13 +3,11 @@ const app = express();
 const router = express.Router();
 const bodyParser = require('body-parser')
 const session = require('express-session')
-
 const UsersMock = require('./mock/users-mock');
-
-app.use(session({ secret: 'keyboard cat', saveUninitialized: true, resave: true, cookie: { maxAge: 600000 }}))
 
 app.set('view engine', 'ejs');
 
+app.use(session({ secret: 'keyboard cat', saveUninitialized: true, resave: true, cookie: { maxAge: 600000 }}))
 app.use(express.static('public'));
 
 router.get('/', function (req, res, next) {
@@ -54,6 +52,14 @@ router.post('/login', bodyParser.urlencoded({ extended: false }), function (req,
     });
   }
 });
+
+router.get('/404', function (req, res, next) {
+  return res.status(404).render('404.ejs');
+});
+
+router.use(function (req, res, next) {
+  res.redirect('/404')
+})
 
 app.use('/', router)
 
