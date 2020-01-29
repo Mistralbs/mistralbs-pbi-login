@@ -18,11 +18,16 @@ router.get('/', function (req, res, next) {
   });
 });
 
+router.get('/logout', function (req, res) {
+  req.session.user = null;
+  return res.redirect('/');
+})
+
 router.get('/dashboard', function (req, res, next) {
   if (req.session.user) {
     return next();
   } else {
-    return res.write('<h1>Access Denied</h1><a href="/">Login</a>')
+    return res.render('forbidden.ejs')
   }
 }, function (req, res) {
   return res.render('dashboard.ejs', req.session.user)

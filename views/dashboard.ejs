@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
   <link rel="stylesheet" href="/assets/css/styles.css" />
   <title><%= username %></title>
 </head>
@@ -25,9 +26,10 @@
 
       <div class="card" style="width: 100%;text-align: center;">
         <div class="" style="width: 100%;height: 500px;background-color: #eeeeee;"></div>
-        <h3 style="margin-top: 10px;">Bienvenido <b><%= username %></b></h3>
+        <h3 style="margin-top: 10px;"><b style="color: #f3be00"><i class="far fa-user"></i> <%= username %></b></h3>
         <p class="title"><%= email %></p>
-        <p style="color: orange">Mistral Business Solutions</p>
+        <p><a href="/logout" class="btn btn-xs btn-danger"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a></p>
+        <p style="color: orange">© 2020 Mistral Business Solutions S.L</p>
       </div>
     </div>
   </div>
