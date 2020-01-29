@@ -13,7 +13,6 @@ app.use(session({ secret: 'keyboard cat', saveUninitialized: true, resave: true,
 app.use(express.static('public'));
 
 router.get('/', function (req, res, next) {
-
   if (req.session.user) {
     return res.redirect('/dashboard');
   }
@@ -32,7 +31,7 @@ router.get('/dashboard', function (req, res, next) {
   if (req.session.user) {
     return next();
   } else {
-    return res.render('forbidden.ejs')
+    return res.status(401).render('forbidden.ejs')
   }
 }, function (req, res) {
   PowerBIClient.getReport().then(function (report) {
@@ -66,8 +65,7 @@ router.post('/login', bodyParser.urlencoded({ extended: false }), function (req,
     }
 
   } catch (err) {
-    res.statusCode = 401;
-    return res.render('index.ejs', {
+    return res.status(400).render('index.ejs', {
       error: 'Usuario o contraseña incorrectos'
     });
   }
