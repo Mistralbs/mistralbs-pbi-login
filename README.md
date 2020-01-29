@@ -8,3 +8,7 @@ cd mbs-pbi-login
 npm run start
 ```
 
+Una vez arrancado ir a http://localhost:3000 😁.
+
+
+
