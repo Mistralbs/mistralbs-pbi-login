@@ -4,6 +4,8 @@ const router = express.Router();
 const bodyParser = require('body-parser')
 const session = require('express-session')
 
+const UsersMock = require('./mock/users-mock');
+
 app.use(session({ secret: 'keyboard cat', saveUninitialized: true, resave: true, cookie: { maxAge: 60000 }}))
 
 app.set('view engine', 'ejs');
@@ -30,29 +32,22 @@ router.post('/login', bodyParser.urlencoded({ extended: false }), function (req,
   const id = req.body.email;
   const pw = req.body.password;
 
-  if (id == 'fulanito@mistralbs.com' && pw == '1234') {
-    req.session.user = {
-      email: 'fulanito@mistralbs.com',
-      username: 'Fulanito Lorem'
+  try {
+    const user = UsersMock.validateUserPassword(id, pw);
+    req.session.user = user;
+
+    if (req.session.user) {
+      return res.redirect('/dashboard');
+    } else {
+      throw new Error('Server Error');
     }
+     
+  } catch (err) {
+    res.statusCode = 401;
+    return res.render('index.ejs', {
+      error: 'Invalid user or password'
+    });
   }
-
-  if (id == 'menganito@mistralbs.com' && pw == '1234') {
-    req.session.user = {
-      email: 'menganito@mistralbs.com',
-      username: 'Menganito Lorem'
-    }
-  }
-
-  if (req.session.user) {
-    return res.redirect('/dashboard');
-  }
-
-  res.statusCode = 401;
-
-  return res.render('index.ejs', {
-    error: 'Invalid user or password'
-  });
 });
 
 app.use('/', router)
