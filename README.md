@@ -5,6 +5,7 @@ Para arrancar el servidor web es necesario tener Node.js instalado.
 
 ```bash
 cd mbs-pbi-login
+npm install
 npm run start
 ```
 ## Añadir variables de entorno

@@ -35,7 +35,7 @@ router.get('/dashboard', function (req, res, next) {
   }
 }, function (req, res) {
   PowerBIClient.getReport().then(function (report) {
-    PowerBIClient.generateEmbedTokenWithRls(req.session.user.email, req.session.user.roles).then( function (response) {
+    PowerBIClient.generateEmbedTokenWithRls(req.session.user.email, req.session.user.roles).then(function (response) {
       return res.render('dashboard.ejs', {
         user: req.session.user,
         embeddedAccessToken: response,
