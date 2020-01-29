@@ -53,12 +53,8 @@ router.post('/login', bodyParser.urlencoded({ extended: false }), function (req,
   }
 });
 
-router.get('/404', function (req, res, next) {
-  return res.status(404).render('404.ejs');
-});
-
 router.use(function (req, res, next) {
-  res.redirect('/404')
+  return res.status(404).render('404.ejs');
 })
 
 app.use('/', router)
