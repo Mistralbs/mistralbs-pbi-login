@@ -11,7 +11,12 @@ app.use(session({ secret: 'keyboard cat', saveUninitialized: true, resave: true,
 app.use(express.static('public'));
 
 router.get('/', function (req, res, next) {
-  res.render("index.ejs", {
+
+  if (req.session.user) {
+    return res.redirect('/dashboard');
+  }
+
+  return res.render("index.ejs", {
     error: null
   });
 });
