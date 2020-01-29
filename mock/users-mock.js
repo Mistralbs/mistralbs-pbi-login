@@ -15,7 +15,7 @@ module.exports = {
       const res = Object.assign({}, user);
       delete res.password;
 
-      return user;
+      return res;
     }
 
     return false;
