@@ -2,11 +2,13 @@
   {
     "email": "fulanito@mistralbs.com",
     "password": "1234",
-    "username": "Fulano Lorem"
+    "username": "Fulano Lorem",
+    "roles": ["empleado"]
   },
   {
     "email": "menganito@mistralbs.com",
     "password": "1234",
-    "username": "Mengano Ipsum"
+    "username": "Mengano Ipsum",
+    "roles": ["empleado"]
   }
 ]

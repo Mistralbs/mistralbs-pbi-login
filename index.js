@@ -4,7 +4,8 @@ const router = express.Router();
 const bodyParser = require('body-parser')
 const session = require('express-session')
 const UsersMock = require('./mock/users-mock');
-
+const PowerBIClient = require('./power-bi/client');
+const config = require('./power-bi/config.json');
 app.set('view engine', 'ejs');
 
 app.use(session({ secret: 'keyboard cat', saveUninitialized: true, resave: true, cookie: { maxAge: 600000 }}))
@@ -33,7 +34,20 @@ router.get('/dashboard', function (req, res, next) {
     return res.render('forbidden.ejs')
   }
 }, function (req, res) {
-  return res.render('dashboard.ejs', req.session.user)
+  PowerBIClient.getReport().then(function (report) {
+    PowerBIClient.generateEmbedTokenWithRls(req.session.user.email, req.session.user.roles).then( function (response) {
+      return res.render('dashboard.ejs', {
+        user: req.session.user,
+        embeddedAccessToken: response,
+        embeddedReportId: config.reportId,
+        report: report
+      })
+    })
+  }).catch(function (err) {
+    console.log(err);
+    return res.send(err)
+  })
+
 })
 
 router.post('/login', bodyParser.urlencoded({ extended: false }), function (req, res, next) {

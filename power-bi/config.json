@@ -1,0 +1,8 @@
+{
+  "authorityUrl" : "https://login.microsoftonline.com/common/",
+  "resourceUrl" : "https://analysis.windows.net/powerbi/api",
+  "apiUrl" : "https://api.powerbi.com/",
+  "appId" : "3045745d-4766-4d62-a440-98b535ac9e09",
+  "workspaceId" : "dfab6dd3-5966-490e-9b7d-bc19c7cecd25",
+  "reportId" : "53ab414a-7b0a-4e3a-83ec-9020386bd3dc"
+}
