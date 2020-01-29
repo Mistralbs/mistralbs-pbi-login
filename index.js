@@ -53,7 +53,7 @@ router.post('/login', bodyParser.urlencoded({ extended: false }), function (req,
   } catch (err) {
     res.statusCode = 401;
     return res.render('index.ejs', {
-      error: 'Invalid user or password'
+      error: 'Usuario o contraseña incorrectos'
     });
   }
 });
