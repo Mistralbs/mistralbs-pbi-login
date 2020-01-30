@@ -1,0 +1,22 @@
+body {
+  background-color: red;
+  text-align: center;
+}
+
+.container {
+  background-color: white;
+  border-radius: 8px;
+}
+
+.mbs-logo-container {
+  margin-top: 30px
+}
+
+.mbs-logo {
+  width: 125px;
+  height: 125px;
+}
+
+.footer {
+  color: orange;
+}

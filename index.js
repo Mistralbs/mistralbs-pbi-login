@@ -38,12 +38,17 @@ router.get('/dashboard', function (req, res, next) {
     const report = await PowerBIClient.getReport();
     const accessToken = await PowerBIClient.generateEmbedTokenWithRls(req.session.user.email, req.session.user.roles);
 
-    return res.render('dashboard.ejs', {
-      user: req.session.user,
-      embeddedAccessToken: accessToken,
-      embeddedReportId: config.reportId,
-      report: report
-    })
+    if (report && report.embedUrl && accessToken) {
+      return res.render('dashboard.ejs', {
+        user: req.session.user,
+        embeddedAccessToken: accessToken,
+        embeddedReportId: config.reportId,
+        report: report
+      })
+    } else {
+      throw new Error('Report or AccessToken fail, check if you have the right environment variables');
+    }
+
   } catch (err) {
     console.log(err);
 
