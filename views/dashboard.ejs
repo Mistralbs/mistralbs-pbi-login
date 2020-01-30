@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,41 +12,76 @@
     integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
   <link rel="stylesheet" href="/assets/css/styles.css" />
   <title><%= user.username %></title>
-</head>
+  <style>
+    body {
+      background-image: url(https://www.zimaltec.es/img/personalizacion/zimaltec/noticias/curso-power-bi.jpg);
+    }
+    .container {
+      background-color: white;
+      border-radius: 8px;
+    }
 
-<body style="background-image: url(https://www.zimaltec.es/img/personalizacion/zimaltec/noticias/curso-power-bi.jpg);">
-  <div class="container" style="background-color: white; border-radius: 8px;">
-    <div class="mbs-logo-container" style="margin-top: 30px;">
-      <div class="mbs-logo-content" style="margin-top: 20px;">
-        <img style="
+    .mbs-logo {
       width: 125px;
       height: 61px;
-  " src="https://mistralbs.com/wp-content/uploads/2019/09/mistral.png" alt="">
+    }
+
+    .mbs-logo-container {
+      margin-top: 30px;
+    }
+
+    .mbs-logo-content {
+      margin-top: 20px;
+    }
+
+    #reportContainer {
+      width: 100%;height: 500px;background-color: #eeeeee;
+    }
+
+    .card {
+      width: 100%;text-align: center;
+    }
+
+    .username {
+      margin-top: 10px;
+    }
+
+    .username b {
+      color: #f3be00
+    }
+
+    .footer {
+      color: orange
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="mbs-logo-container">
+      <div class="mbs-logo-content">
+        <img class="mbs-logo" src="https://mistralbs.com/wp-content/uploads/2019/09/mistral.png" alt="">
       </div>
     </div>
     <div class="row">
-
-      <div class="card" style="width: 100%;text-align: center;">
-        <div class="" id="reportContainer" style="width: 100%;height: 500px;background-color: #eeeeee;">
-
-        </div>
-        <h3 style="margin-top: 10px;"><b style="color: #f3be00"><i class="far fa-user"></i> <%= user.username %></b></h3>
+      <div class="card">
+        <div id="reportContainer"></div>
+        <h3 class="username"><b><i class="far fa-user"></i> <%= user.username %></b>
+        </h3>
         <p class="title"><%= user.email %></p>
         <p><a href="/logout" class="btn btn-xs btn-danger"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a></p>
-        <p style="color: orange">© 2020 Mistral Business Solutions S.L</p>
+        <p class="footer">© 2020 Mistral Business Solutions S.L</p>
       </div>
     </div>
   </div>
   <script src="/assets/js/powerbi-client.js"></script>
   <script src="/assets/js/dashboard.js"></script>
-  <script> 
+  <script>
     var acessToken = "<%=  embeddedAccessToken %>";
     var reportId = "<%= embeddedReportId %>";
     var embedUrl = "<%= report.embedUrl %>";
-    console.log(acessToken);
-    console.log(reportId);
 
     printReport(acessToken, reportId, embedUrl);
   </script>
 </body>
+
 </html>
