@@ -1,12 +1,12 @@
 # Demo Power BI Embedded con RLS
 * RLS = Row Level Security. Más info: https://docs.microsoft.com/en-us/power-bi/service-admin-rls
-* Se requiere una cuenta Power BI PRO. Consíguela aquí: https://powerbi.microsoft.com/es-es/power-bi-pro/
+* ***Se requiere una cuenta Power BI PRO**. Consíguela aquí: https://powerbi.microsoft.com/es-es/power-bi-pro/
 
 ## Configuración
 En el archivo `power-bi/config.json` pon tu configuración, debes añadir los siguentes campos:
-* WorkspaceId: El Id de tu Workspace
-* AppId: El Id de la aplicación, si no tienes una la puedes crear, ver: https://docs.microsoft.com/en-us/power-bi/developer/register-app
-* ReportId: El Id del informe que quieres insertar
+* **WorkspaceId**: El Id de tu Workspace
+* **AppId**: El Id de la aplicación, si no tienes una la puedes crear, ver: https://docs.microsoft.com/en-us/power-bi/developer/register-app
+* **ReportId**: El Id del informe que quieres insertar
 
 ```js
 {
@@ -25,14 +25,14 @@ Los usuarios de la aplicación los puedes encontrar en `db/users.json` puedes mo
 ## Iniciar aplicacion web
 
 ### 1. Añadir variables de entorno
-En Linux abre un terminal y pon:
+* En Linux abre un terminal y pon:
 
 ```bash
 export PBI_USER="usuario de powerbi"
 export PBI_PASSWORD="Contraseña de powerbi"
 ```
 
-En Windows:
+* En Windows:
 
 ```bash
 set PBI_USER="usuario de powerbi"
