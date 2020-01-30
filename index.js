@@ -33,20 +33,20 @@ router.get('/dashboard', function (req, res, next) {
   } else {
     return res.status(401).render('forbidden.ejs')
   }
-}, function (req, res) {
-  PowerBIClient.getReport().then(function (report) {
-    PowerBIClient.generateEmbedTokenWithRls(req.session.user.email, req.session.user.roles).then(function (response) {
-      return res.render('dashboard.ejs', {
-        user: req.session.user,
-        embeddedAccessToken: response,
-        embeddedReportId: config.reportId,
-        report: report
-      })
+}, async function (req, res) {
+  try {
+    const report = await PowerBIClient.getReport();
+    const accessToken = await PowerBIClient.generateEmbedTokenWithRls(req.session.user.email, req.session.user.roles);
+    return res.render('dashboard.ejs', {
+      user: req.session.user,
+      embeddedAccessToken: accessToken,
+      embeddedReportId: config.reportId,
+      report: report
     })
-  }).catch(function (err) {
+  } catch (err) {
     console.log(err);
-    return res.send(err)
-  })
+    return res.status(500).send(err)
+  }
 
 })
 
