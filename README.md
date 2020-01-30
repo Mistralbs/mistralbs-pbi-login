@@ -22,7 +22,7 @@ Ten en cuenta que tu informe tiene que tener configurado RLS para los usuarios d
 
 Los usuarios de la aplicación los puedes encontrar en `db/users.json` puedes modificarlos si quieres.
 
-## Iniciar aplicacion web
+## Iniciar aplicación web
 
 ### 1. Añadir variables de entorno
 * En Linux abre un terminal y pon:
