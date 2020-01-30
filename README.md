@@ -20,7 +20,7 @@ En el archivo `power-bi/config.json` pon tu configuración, debes añadir los si
 ```
 Ten en cuenta que tu informe tiene que tener configurado RLS para los usuarios de la aplicación. Puedes ver cómo se hace aquí: https://docs.microsoft.com/en-us/power-bi/service-admin-rls#define-roles-and-rules-in-power-bi-desktop
 
-Los usuarios de la aplicación los puedes encontrar en `db/users.json` puedes modificarlos o añadir más si quieres.
+Los usuarios de la aplicación los puedes encontrar en `db/users.json` puedes modificarlos o añadir más si quieres. Tanto los roles como los emails de los usuarios deben coincidir con los que configuraste mediante RLS en tu informe.
 
 ## Iniciar aplicación web
 
