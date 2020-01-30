@@ -1,6 +1,6 @@
 # Demo Power BI Embedded con RLS
 * RLS = Row Level Security. Más info: https://docs.microsoft.com/en-us/power-bi/service-admin-rls
-* ***Se requiere una cuenta Power BI PRO**. Consíguela aquí: https://powerbi.microsoft.com/es-es/power-bi-pro/
+* **Se requiere una cuenta Power BI PRO**. Consíguela aquí: https://powerbi.microsoft.com/es-es/power-bi-pro/
 
 ## Configuración
 En el archivo `power-bi/config.json` pon tu configuración, debes añadir los siguentes campos:
