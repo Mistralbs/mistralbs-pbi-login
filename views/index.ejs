@@ -28,7 +28,7 @@
                   </div>
                 </div>
                 <h3 class="login-heading mb-4">¡Hola! Vamos a probar la API de Power BI 😄</h3>
-                <form action="/login" method="post">
+                <form id="form" action="/login" method="post">
                   <div class="form-label-group">
                     <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address"
                       required autofocus>
@@ -40,9 +40,9 @@
                     <label for="inputPassword">Contraseña</label>
                   </div>
                   <label class="error-label" for="customCheck1"><%= error ? error : ''%></label>
-                  <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
-                    type="submit">Entrar</button>
                 </form>
+                <button onclick="showSpinner()" id="submitButton" class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2">Entrar</button>
+
                 <div class="users-info">
                   <p>
                     <% users.forEach( (user, index) => { %>
@@ -57,6 +57,15 @@
       </div>
     </div>
   </div>
+  <script>
+  var submitButton = document.getElementById('submitButton');
+  var form = document.getElementById('form');
+
+  function showSpinner() {
+    submitButton.innerHTML = '<div class="spinner-border"></div>';
+    form.submit();
+  }
+  </script>
 </body>
 
 </html>
