@@ -10,8 +10,17 @@
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="/assets/css/styles.css" />
   <title>MBS Login</title>
-</head>
+  <style>
+    .mbs-logo {
+      width: 125px;
+      height: 61px;
+    }
 
+    .error-label {
+      color: red
+    }
+  </style>
+</head>
 <body>
   <div class="container-fluid">
     <div class="row no-gutter">
@@ -23,10 +32,7 @@
               <div class="col-md-9 col-lg-8 mx-auto">
                 <div class="mbs-logo-container">
                   <div class="mbs-logo-content">
-                    <img style="
-                    width: 125px;
-                    height: 61px;
-                " src="https://mistralbs.com/wp-content/uploads/2019/09/mistral.png" alt="">
+                    <img class="mbs-logo" src="https://mistralbs.com/wp-content/uploads/2019/09/mistral.png" alt="">
                   </div>
                 </div>
                 <h3 class="login-heading mb-4">¡Hola! Vamos a probar la API de Power BI 😄</h3>
@@ -36,18 +42,14 @@
                       required autofocus>
                     <label for="inputEmail">Email</label>
                   </div>
-
                   <div class="form-label-group">
                     <input type="password" name="password" id="inputPassword" class="form-control"
                       placeholder="Password" required>
                     <label for="inputPassword">Contraseña</label>
                   </div>
-
-                  <label style="color: red" class=""
-                    for="customCheck1"><%= error ? error : ''%></label>
+                  <label class="error-label" for="customCheck1"><%= error ? error : ''%></label>
                   <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
                     type="submit">Entrar</button>
-
                 </form>
                 <div class="users-info">
                   <p><b>Usuario 1: </b> menganito@mistralbs.com <b>Pwd</b> 1234 <br />
@@ -61,5 +63,4 @@
     </div>
   </div>
 </body>
-
 </html>
