@@ -68,7 +68,7 @@ router.post('/login', bodyParser.urlencoded({ extended: false }), function (req,
     if (req.session.user) {
       return res.redirect('/dashboard');
     } else {
-      throw new Error('Forbidden');
+      throw new Error('Bad Request');
     }
 
   } catch (err) {
