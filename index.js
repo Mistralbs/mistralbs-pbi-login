@@ -9,7 +9,7 @@ const config = require('./power-bi/config.json');
 
 app.set('view engine', 'ejs');
 
-app.use(session({ secret: 'keyboard cat', saveUninitialized: true, resave: true, cookie: { maxAge: 600000 } }))
+app.use(session({ secret: 'mistralbs vlc cat rsginer', saveUninitialized: true, resave: true, cookie: { maxAge: 600000 } }))
 app.use(express.static('public'));
 
 router.get('/', function (req, res, next) {
