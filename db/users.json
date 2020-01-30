@@ -10,11 +10,5 @@
     "password": "1234",
     "username": "Mengano Ipsum",
     "roles": ["empleado"]
-  },
-  {
-    "email": "ruben@mistralbs.com",
-    "password": "1234",
-    "username": "Ruben Soler",
-    "roles": ["empleado"]
   }
 ]
