@@ -44,8 +44,11 @@
                     type="submit">Entrar</button>
                 </form>
                 <div class="users-info">
-                  <p><b>Usuario 1: </b> menganito@mistralbs.com <b>Pwd</b> 1234 <br />
-                    <b>Usuario 2: </b> fulanito@mistralbs.com <b>Pwd</b> 1234</p>
+                  <p>
+                    <% users.forEach( (user, index) => { %>
+                      <span><b>Usuario <%= index + 1 %>: </b> <%=user.email%> <b>Pwd</b> <%=user.password%></span><br />
+                   <% }) %>
+                     </p>
                 </div>
               </div>
             </div>

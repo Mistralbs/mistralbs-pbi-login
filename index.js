@@ -6,6 +6,7 @@ const session = require('express-session')
 const UsersMock = require('./mock/users-mock');
 const PowerBIClient = require('./power-bi/client');
 const config = require('./power-bi/config.json');
+const usersJSON = require('./db/users.json');
 
 app.set('view engine', 'ejs');
 
@@ -18,7 +19,8 @@ router.get('/', function (req, res, next) {
   }
 
   return res.render("index.ejs", {
-    error: null
+    error: null,
+    users: usersJSON
   });
 });
 
@@ -73,7 +75,8 @@ router.post('/login', bodyParser.urlencoded({ extended: false }), function (req,
 
   } catch (err) {
     return res.status(400).render('index.ejs', {
-      error: 'Usuario o contraseña incorrectos'
+      error: 'Usuario o contraseña incorrectos',
+      users: usersJSON
     });
   }
 });
