@@ -57,7 +57,7 @@ npm run start
 ```
 Una vez arrancado ir a http://localhost:3000 😁.
 
-## Support
+## Soporte técnico
 Rubén Soler <<ruben.soler@mistralbs.com>> - [@RSginer](https://github.com/RSginer)
 
 
