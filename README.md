@@ -1,6 +1,26 @@
 # Demo Power BI Embedded con RLS
 * RLS = Row Level Security. Mas info: https://docs.microsoft.com/en-us/power-bi/service-admin-rls
 * Se requiere una cuenta Power BI PRO. Consiguela: https://powerbi.microsoft.com/es-es/power-bi-pro/
+## Configuracion
+En el archivo `power-bi/config.json` pon tu configuracion, debes añadir los siguentes campos:
+* WorkspaceId: El Id de tu Workspace
+* AppId: El Id de la aplicación, si no tienes una la puedes crear, ver: https://docs.microsoft.com/en-us/power-bi/developer/register-app
+* ReportId: El Id del report que quieres insertar
+
+```js
+{
+  "authorityUrl" : "https://login.microsoftonline.com/common/",
+  "resourceUrl" : "https://analysis.windows.net/powerbi/api",
+  "apiUrl" : "https://api.powerbi.com/",
+  "appId" : "AQUI TU APP ID",
+  "workspaceId" : "AQUI TU WORKSPACE ID",
+  "reportId" : "AQUI TU REPORT ID"
+}
+```
+Ten encuenta que tu reporte tiene que tener configurado RLS para los usuarios de la aplicación. Puedes ver cómo se hace aquí: https://docs.microsoft.com/en-us/power-bi/service-admin-rls#define-roles-and-rules-in-power-bi-desktop
+
+Los usuarios de la aplicación los puedes encontrar en `db/users.json` puedes modificarlos si quieres.
+
 ## Iniciar aplicacion web
 
 ### 1. Añadir variables de entorno
