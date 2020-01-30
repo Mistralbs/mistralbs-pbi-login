@@ -37,6 +37,7 @@ router.get('/dashboard', function (req, res, next) {
   try {
     const report = await PowerBIClient.getReport();
     const accessToken = await PowerBIClient.generateEmbedTokenWithRls(req.session.user.email, req.session.user.roles);
+
     return res.render('dashboard.ejs', {
       user: req.session.user,
       embeddedAccessToken: accessToken,
@@ -45,6 +46,7 @@ router.get('/dashboard', function (req, res, next) {
     })
   } catch (err) {
     console.log(err);
+
     return res.status(500).send(err)
   }
 
