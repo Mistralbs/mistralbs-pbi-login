@@ -48,11 +48,11 @@ router.get('/dashboard', function (req, res, next) {
         report: report
       })
     } else {
-      throw new Error('Report or AccessToken fail, check if you have the right environment variables. \n See Server console for more info.');
+      throw new Error('<div style="text-align:center"><h1>500 Server Error</h1><p>Report or AccessToken fail, check if you have the right environment variables.</p><p>See server console for more info.</p></div>');
     }
 
   } catch (err) {
-    return res.status(500).send(err.toString())
+    return res.status(500).send(err.message)
   }
 
 })
