@@ -48,7 +48,7 @@ router.get('/dashboard', function (req, res, next) {
         report: report
       })
     } else {
-      throw new Error('Report or AccessToken fail, check if you have the right environment variables');
+      throw new Error('Report or AccessToken fail, check if you have the right environment variables. \n See Server console for more info.');
     }
 
   } catch (err) {
