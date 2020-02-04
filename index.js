@@ -52,9 +52,7 @@ router.get('/dashboard', function (req, res, next) {
     }
 
   } catch (err) {
-    console.log(err);
-
-    return res.status(500).send(err)
+    return res.status(500).send(err.toString())
   }
 
 })
